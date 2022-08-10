@@ -1,0 +1,24 @@
+:root {
+    --dark-color: #635bff;
+    --light-color: #80e9ff;
+}
+
+svg {
+    cursor: pointer;
+}
+
+#rectangles {
+    fill: var(--primary);
+}
+
+#lightGroup {
+    fill: var(--light-color);
+}
+
+.noPadSvg {
+    padding: 0;
+}
+
+#lines {
+    fill: var(--primary);
+}

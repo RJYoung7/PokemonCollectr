@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+         :root {
+            --dark-color: #635bff;
+            --light-color: #80e9ff;
+        }
+        
+        svg {
+            cursor: pointer;
+        }
+        
+        #darkGroup {
+            fill: var(--dark-color);
+        }
+        
+        #lightGroup {
+            fill: var(--light-color);
+        }
+        
+        #dark1,
+        #light1,
+        #dark2 {
+            transition: all 1s ease;
+        }
+        
+        #dark2 {
+            transform: translateX(-100%);
+        }
+        
+        svg:hover #light1 {
+            transform: translateX(20%);
+        }
+        
+        svg:hover #dark1 {
+            transform: translateX(40%);
+            opacity: 0;
+        }
+        
+        svg:hover #dark2 {
+            transform: translateX(0%);
+        }
+    </style>
+</head>
+
+<body>
+    <svg width="120" height="100" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="triangles" clip-path="url(#clip0_2_2)">
+        <g id="lightGroup" opacity="0.7">
+        <path id="light1" d="M48.056 48.3674C49.3878 49.1398 49.384 51.0643 48.0492 51.8315L13.5104 71.6827C12.1756 72.4499 10.5108 71.4844 10.5138 69.9448L10.5915 30.1077C10.5945 28.5681 12.2631 27.6091 13.5949 28.3815L48.056 48.3674Z"/>
+        </g>
+        <g id="darkGroup" opacity="0.7">
+        <path id="dark2" opacity="0.7" d="M48.056 48.3674C49.3878 49.1398 49.384 51.0643 48.0492 51.8315L13.5104 71.6827C12.1756 72.4499 10.5108 71.4844 10.5138 69.9448L10.5915 30.1077C10.5945 28.5681 12.2631 27.6091 13.5949 28.3815L48.056 48.3674Z"/>
+        <path id="dark1" opacity="0.7" d="M64.056 48.3674C65.3878 49.1398 65.384 51.0643 64.0492 51.8315L29.5104 71.6827C28.1756 72.4499 26.5108 71.4844 26.5138 69.9448L26.5915 30.1077C26.5945 28.5681 28.2631 27.6091 29.5949 28.3815L64.056 48.3674Z"/>
+        </g>
+        </g>
+        <defs>
+        <clipPath id="clip0_2_2">
+        <rect width="120" height="100" fill="white"/>
+        </clipPath>
+        </defs>
+        </svg>
+</body>
+
+<script>
+    const svg = document.getElementById('triangles');
+
+    svg.onclick = (e) => {
+        const colors = ['red', 'blue', 'green', 'orange', 'pink', 'purple', '#635bff', '#80e9ff'];
+        const rando = () => colors[Math.floor(Math.random() * colors.length)];
+        document.documentElement.style.cssText = `
+        --dark-color: ${rando()};
+        --light-color: ${rando()};
+        `
+    }
+</script>
+
+</html>

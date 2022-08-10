@@ -1,0 +1,11 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="list">
+<rect width="40" height="40" fill="white"/>
+<g id="lines">
+<rect id="line4" x="4" y="31" width="32" height="5" rx="1" fill="black"/>
+<rect id="line3" x="4" y="22" width="32" height="5" rx="1" fill="black"/>
+<rect id="line2" x="4" y="13" width="32" height="5" rx="1" fill="black"/>
+<rect id="line1" x="4" y="4" width="32" height="5" rx="1" fill="black"/>
+</g>
+</g>
+</svg>
