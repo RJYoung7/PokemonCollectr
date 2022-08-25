@@ -1,0 +1,64 @@
+{
+    "series": [{
+        "name": "Sword and Shield",
+        "expansions": [{
+            "name": "Pokemon Go",
+            "cards": [{
+                    "name": "Bulbasaur",
+                    "cardNumber": "001",
+                    "totalCardsInSet": "078",
+                    "rarity": "Common",
+                    "rarityIcon": null,
+                    "counts": {
+                        "hasStandard": true,
+                        "standard": "0",
+                        "hasReverse": true,
+                        "reverse": "0",
+                        "hasHolo": false,
+                        "holo": null
+                    },
+                    "type": "Grass",
+                    "image": "https://tcg.pokemon.com/assets/img/expansions/tcg-go/cards/en-us/POGO_EN_1-2x.jpg",
+                    "owned": false
+                },
+                {
+                    "name": "Ivysaur",
+                    "cardNumber": "002",
+                    "totalCardsInSet": "078",
+                    "rarity": "Uncommon",
+                    "rarityIcon": null,
+                    "counts": {
+                        "hasStandard": true,
+                        "standard": "0",
+                        "hasReverse": true,
+                        "reverse": "0",
+                        "hasHolo": false,
+                        "holo": null
+                    },
+                    "type": "Grass",
+                    "image": "https://tcg.pokemon.com/assets/img/expansions/tcg-go/cards/en-us/POGO_EN_2-2x.jpg",
+                    "owned": false
+                },
+                {
+                    "name": "Venasaur",
+                    "cardNumber": "003",
+                    "totalCardsInSet": "078",
+                    "rarity": "Rare",
+                    "rarityIcon": null,
+                    "counts": {
+                        "hasStandard": false,
+                        "standard": "0",
+                        "hasReverse": true,
+                        "reverse": "0",
+                        "hasHolo": true,
+                        "holo": null
+                    },
+                    "type": "Grass",
+                    "image": "https://tcg.pokemon.com/assets/img/expansions/tcg-go/cards/en-us/POGO_EN_3-2x.jpg",
+                    "owned": false
+                }
+            ],
+            "totalCardsWithSecrets": "088"
+        }]
+    }]
+}

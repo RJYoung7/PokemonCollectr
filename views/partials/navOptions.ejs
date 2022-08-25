@@ -1,61 +1,59 @@
-<nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button> -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <!-- <li class="nav-item active">
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon "></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <!-- <li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li> -->
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Set Name</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">#</a>
-                        <a class="dropdown-item" href="#">Rarity</a>
-                        <a class="dropdown-item" href="#">A-Z</a>
-                        <a class="dropdown-item" href="#">Z-A</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Unowned</a>
-                        <a class="dropdown-item" href="#">Owned</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Grass</a>
-                        <a class="dropdown-item" href="#">Fire</a>
-                        <a class="dropdown-item" href="#">Water</a>
-                        <a class="dropdown-item" href="#">Electric</a>
-                        <a class="dropdown-item" href="#">Psychic</a>
-                        <a class="dropdown-item" href="#">Fighting</a>
-                        <a class="dropdown-item" href="#">Dark</a>
-                        <a class="dropdown-item" href="#">Dragon</a>
-                        <a class="dropdown-item" href="#">Fairy</a>
-                        <a class="dropdown-item" href="#">Metal</a>
-                        <a class="dropdown-item" href="#">Colorless</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Common</a>
-                        <a class="dropdown-item" href="#">Uncommon</a>
-                        <a class="dropdown-item" href="#">Rare</a>
-                        <a class="dropdown-item" href="#">Ultra Rare</a>
-                        <a class="dropdown-item" href="#">Full Art</a>
-                        <a class="dropdown-item" href="#">Alt Full Art</a>
-                        <a class="dropdown-item" href="#">Secret Rare</a>
+            <li class="nav-item">
+                <a class="nav-link text-primary" href="#">
+                    <%= set.name %>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle  text-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">#</a>
+                    <a class="dropdown-item" href="#">Rarity</a>
+                    <a class="dropdown-item" href="#">A-Z</a>
+                    <a class="dropdown-item" href="#">Z-A</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle  text-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Unowned</a>
+                    <a class="dropdown-item" href="#">Owned</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Grass</a>
+                    <a class="dropdown-item" href="#">Fire</a>
+                    <a class="dropdown-item" href="#">Water</a>
+                    <a class="dropdown-item" href="#">Electric</a>
+                    <a class="dropdown-item" href="#">Psychic</a>
+                    <a class="dropdown-item" href="#">Fighting</a>
+                    <a class="dropdown-item" href="#">Dark</a>
+                    <a class="dropdown-item" href="#">Dragon</a>
+                    <a class="dropdown-item" href="#">Fairy</a>
+                    <a class="dropdown-item" href="#">Metal</a>
+                    <a class="dropdown-item" href="#">Colorless</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Common</a>
+                    <a class="dropdown-item" href="#">Uncommon</a>
+                    <a class="dropdown-item" href="#">Rare</a>
+                    <a class="dropdown-item" href="#">Ultra Rare</a>
+                    <a class="dropdown-item" href="#">Full Art</a>
+                    <a class="dropdown-item" href="#">Alt Full Art</a>
+                    <a class="dropdown-item" href="#">Secret Rare</a>
 
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link noPadSvg" href="#">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xlmns:xlink="#">
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link noPadSvg" href="#">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xlmns:xlink="#">
                                 <g id="tiles">
                                     <rect width="40" height="40"/>
                                     <g id="rectangles">
@@ -66,11 +64,11 @@
                                     </g>
                                 </g>
                             </svg>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link noPadSvg" href="#">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link noPadSvg" href="#">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="list">
                                     <rect width="40" height="40"/>
                                     <g id="lines">
@@ -81,13 +79,13 @@
                                     </g>
                                 </g>
                             </svg>
-                    </a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
+                </a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
     </div>
 </nav>

@@ -1,0 +1,16 @@
+CardItem Object properties
+-Name: String
+-CardNumber: Number
+-TotalCardsInSet: Number
+-Rarity: String
+-RarityIcon: SVG
+-Counts: Number
+    -Standard
+    -Reverse
+    -Holo
+-Type (Grass, Fire,...): String
+-Image: JPG, PNG
+-Owned: Boolean
+-Expansion (Brilliant Stars, Evolving Skies) : String
+-Series (Sword and Shield) : String
+
