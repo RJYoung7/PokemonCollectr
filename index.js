@@ -8,7 +8,8 @@ const engine = require('ejs-mate');
 
 const Card = require('./models/card');
 const data = require('./public/assets/pokemonlist.json');
-
+const sets = require('./sets.json');
+const { json } = require('express');
 
 main()
     .then(() => {
@@ -35,12 +36,13 @@ app.set('cards', path.join(__dirname, '/cards'));
 app.get('/', async (req, res) => {
     // const set = data.series[0].expansions[0];
     // const cards = set.cards;
-    const config = { Headers: { Authorization: 'a046ddc1-16d3-4bb1-a8b4-7a1be75dd132'}};
-    const {data} = await axios.get('https://api.pokemontcg.io/v2/sets', config);
-    const setArray = data.data;
-    console.log(setArray);
+    // const config = { Headers: { Authorization: 'a046ddc1-16d3-4bb1-a8b4-7a1be75dd132'}};
+    // const {data} = await axios.get('https://api.pokemontcg.io/v2/sets', config);
+    // const setArray = data.data;
+    // console.log(setArray);
     // const { name } = set;
-    res.render('cards/index', { setArray });
+    const setData = sets.data;
+    res.render('cards/index', { setData});
 
     // res.render('cards/index', {set, cards});
     // console.log(name);

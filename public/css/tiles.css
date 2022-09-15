@@ -36,5 +36,15 @@ svg {
 
 .image {
     height: 100%;
-    width: 100px;
+    width: 50px;
 }
+
+.card-img{
+    width: 100%!important;
+    height: 100px!important;
+    object-fit: cover;
+ }
+
+ body {
+    background-color: green!important;
+ }
