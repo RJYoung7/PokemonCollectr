@@ -4,18 +4,14 @@
 
         <div class="container">
             <div class="row">
-            <% for(let set of setData) { %> 
-
-                <div class="Card border card-img" style="width: 18rem;">
-                    <img class="card-img-top" src="<%= set.images.logo %>" alt="Card image cap">
-                    <div class="card-body">
-                    <h5 class="card-title"><%= set.name %></h5>
-
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-              </div>
-
-            <% } %> 
+                <% for(let set of setData) { %> 
+                    <a href="/set/<%= set.id  %>">
+                    <div class="card parent">
+                        <img class="card-img-top imglogo" src="<%= set.images.logo %>" alt="Card image cap">
+                  </div>
+                </a>
+                
+                <% } %> 
         </div>
         </div>
 
