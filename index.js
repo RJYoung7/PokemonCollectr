@@ -7,9 +7,30 @@ const axios = require('axios');
 const engine = require('ejs-mate');
 
 const Card = require('./models/card');
+const Set = require('./models/set');
 const data = require('./public/assets/pokemonlist.json');
 const sets = require('./sets.json');
 const { json } = require('express');
+
+// const makeSets = async() => {
+//     const setData = sets.data;
+//     for(let set of setData) {
+//         const newSet = new Set({
+//             id: set.id,
+//             name: set.name,
+//             series: set.series,
+//             printedTotal: set.printedTotal,
+//             total: set.total,
+//             releaseDate: set.releaseDate
+//             // images: {
+//             //     symbol: set.images.symbol,
+//             //     logo: set.images.logo
+//             // }
+//         })
+//         newSet.save();
+//     }
+// }
+// makeSets();
 
 main()
     .then(() => {
