@@ -1,11 +1,8 @@
+const {Schema} = require('mongoose');
 const mongoose = require('mongoose');
 
-const cardSchema = new mongoose.Schema({
-    expansion: {
-        type: String,
-        required: true
-    },
-    series: {
+const cardSchema = new Schema({
+    id: {
         type: String,
         required: true
     },
@@ -13,20 +10,11 @@ const cardSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    cardNumber: {
+    number: {
         type: Number,
         required: true,
         min: 001
-    },
-    totalCardsInSet: {
-        type: Number,
-        required: true
-    },
-    totalCardsIncludingSecrets: {
-        type: Number,
-        required: true
-    },
-    
+    },    
     rarity: {
         type: String,
         required: true
@@ -63,17 +51,27 @@ const cardSchema = new mongoose.Schema({
             default: 0
         }
     }],
-    type: {
+    types: [{
         type: String,
         required: true
-    },
-    image: {
-        type: String,
-        required: false
-    },
+    }],
+    image: [{
+        small: {
+            type: String,
+            required: false
+        },
+        large: {
+            type: String,
+            required: false
+        }
+    }],
     owned: {
         type: Boolean,
         required: true
+    },
+    set: {
+        type: Schema.Types.ObjectId,
+        ref: 'Set'
     }
 })
 
