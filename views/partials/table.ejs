@@ -1,3 +1,5 @@
+<% layout('layouts/boilerplate') -%> 
+
 <table class="table table-bordered table-striped">
     <thead class="thead-dark">
         <tr>
@@ -8,9 +10,11 @@
         </tr>
     </thead>
     <tbody>
-        <% for(let card of set.cards) { %>
-            <%- include('./item', {card : card}); %>
+        <% for(let card of cards) { %>
+            <%- include('./item', {card : card, set: theSet}); %>
 
                 <% } %>
     </tbody>
 </table>
+
+
