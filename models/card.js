@@ -1,5 +1,6 @@
 const {Schema} = require('mongoose');
 const mongoose = require('mongoose');
+const Set = require('./set');
 
 const cardSchema = new Schema({
     id: {
@@ -19,38 +20,39 @@ const cardSchema = new Schema({
         type: String,
         required: true
     },
-    counts: [{
+    counts: {
         hasStandard: {
             type: Boolean,
+            default: false,
             required: true
         },
         standardCount: {
             type: Number,
+            default: 0,
             required: true,
-            min: 0,
-            default: 0
+            min: 0
         },
         hasReverse: {
             type: Boolean,
+            default: false,
             required: true
         },
         reverseCount: {
             type: Number,
+            default: 0,
             required: true,
-            min: 0,
-            default: 0
+            min: 0
         },
         hasHolo: {
             type: Boolean,
-            required: true
-        },
+            default: false,
+            required: true        },
         holoCount: {
             type: Number,
+            default: 0,
             required: true,
-            min: 0,
-            default: 0
-        }
-    }],
+            min: 0        }
+    },
     types: [{
         type: String,
         required: true
