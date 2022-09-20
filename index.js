@@ -5,32 +5,14 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const axios = require('axios');
 const engine = require('ejs-mate');
+const pokemon = import('./modules/pokemontcgio.mjs')
 
 const Card = require('./models/card');
 const Set = require('./models/set');
 const data = require('./public/assets/pokemonlist.json');
 const sets = require('./sets.json');
+const cards = require('./swsh11.json');
 const { json } = require('express');
-
-// const makeSets = async() => {
-//     const setData = sets.data;
-//     for(let set of setData) {
-//         const newSet = new Set({
-//             id: set.id,
-//             name: set.name,
-//             series: set.series,
-//             printedTotal: set.printedTotal,
-//             total: set.total,
-//             releaseDate: set.releaseDate
-//             // images: {
-//             //     symbol: set.images.symbol,
-//             //     logo: set.images.logo
-//             // }
-//         })
-//         newSet.save();
-//     }
-// }
-// makeSets();
 
 main()
     .then(() => {
@@ -75,6 +57,14 @@ app.get('/pokemongo', (req, res) => {
     // const { name } = set;
     res.render('home', {set, cards });
     // console.log(name);
+})
+
+app.get('/set/:id', async (req, res) => {
+    // Get the card data
+    const {id} = req.params;
+    const theSet = await Set.findOne({id: id})
+    const cards = await Card.find({set: theSet});
+    res.render('cards/set', { cards, theSet });
 })
 
 app.listen(3000, () => {
