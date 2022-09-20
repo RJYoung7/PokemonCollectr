@@ -1,13 +1,13 @@
 <tr>
     <td>
-        <img src="<%=card.image %>" class="img-fluid img-thumbnail image" alt=" ">
+        <img src="<%= card.image.small %>" class="img-fluid img-thumbnail image" alt=" ">
         <%= card.name %>
 
     </td>
 
     <td>
-        <%= card.cardNumber %>/
-            <%= card.totalCardsInSet %>
+        <%= card.number %> /
+            <%= theSet.printedTotal %>
     </td>
     <td>
         <%= card.rarity %>
@@ -18,21 +18,21 @@
 
             <div class="btn-group btn-group-sm " role="group " aria-label="Basic example ">
                 <button type="button " class="btn btn-secondary ">Down</button>
-                <button type="button " class="btn btn-secondary disabled ">Standard <span class="badge badge-light ">1</span></button>
+                <button type="button " class="btn btn-secondary disabled ">Standard <span class="badge badge-light "><%= card.counts.hasStandard %> </span></button>
                 <button type="button " class="btn btn-secondary ">Up</button>
             </div>
             <% } %>
                 <% if(card.counts.hasReverse === true) { %>
                     <div class="btn-group btn-group-sm " role="group " aria-label="Basic example ">
                         <button type="button " class="btn btn-secondary ">Down</button>
-                        <button type="button " class="btn btn-secondary disabled ">Reverse <span class="badge badge-light ">1</span></button>
+                        <button type="button " class="btn btn-secondary disabled ">Reverse <span class="badge badge-light "><%= card.counts.hasReverse %></span></button>
                         <button type="button " class="btn btn-secondary ">Up</button>
                     </div>
                     <% } %>
                         <% if(card.counts.hasHolo === true) { %>
                             <div class="btn-group btn-group-sm " role="group " aria-label="Basic example ">
                                 <button type="button " class="btn btn-secondary ">Down</button>
-                                <button type="button " class="btn btn-secondary disabled ">Holo <span class="badge badge-light ">1</span></button>
+                                <button type="button " class="btn btn-secondary disabled ">Holo <span class="badge badge-light "><%= card.counts.hasHolo %></span></button>
                                 <button type="button " class="btn btn-secondary ">Up</button>
                             </div>
                             <% } %>
