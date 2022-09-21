@@ -47,3 +47,9 @@ svg {
     max-height: max-content;
     margin: auto;
  }
+
+ .imgCard {
+    width: 50%;
+    height: 50%;
+ }
+
