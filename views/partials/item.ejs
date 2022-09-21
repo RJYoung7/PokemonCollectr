@@ -1,41 +1,43 @@
-<tr>
-    <td>
-        <img src="<%= card.image.small %>" class="img-fluid img-thumbnail image" alt=" ">
-        <%= card.name %>
+<tr class="text-center">
+    <td class="align-middle">
+        <img src='<%= card.image[0].small %>' class="img-fluid imgCard" alt=" " loading="lazy">
 
     </td>
+    <td class="align-middle">
+        <%= card.name %>
+    </td>
 
-    <td>
+    <td class="align-middle">
         <%= card.number %> /
             <%= theSet.printedTotal %>
     </td>
-    <td>
+    <td class="align-middle">
         <%= card.rarity %>
     </td>
-    <td>
+    <td class="align-middle">
 
         <% if(card.counts.hasStandard === true) { %>
 
             <div class="btn-group btn-group-sm " role="group " aria-label="Basic example ">
                 <button type="button " class="btn btn-secondary ">Down</button>
-                <button type="button " class="btn btn-secondary disabled ">Standard <span class="badge badge-light "><%= card.counts.hasStandard %> </span></button>
+                <button type="button " class="btn btn-secondary disabled ">Standard <span class="badge badge-light "><%= card.counts.standardCount %> </span></button>
                 <button type="button " class="btn btn-secondary ">Up</button>
             </div>
-            <% } %>
-                <% if(card.counts.hasReverse === true) { %>
-                    <div class="btn-group btn-group-sm " role="group " aria-label="Basic example ">
-                        <button type="button " class="btn btn-secondary ">Down</button>
-                        <button type="button " class="btn btn-secondary disabled ">Reverse <span class="badge badge-light "><%= card.counts.hasReverse %></span></button>
-                        <button type="button " class="btn btn-secondary ">Up</button>
-                    </div>
-                    <% } %>
-                        <% if(card.counts.hasHolo === true) { %>
-                            <div class="btn-group btn-group-sm " role="group " aria-label="Basic example ">
-                                <button type="button " class="btn btn-secondary ">Down</button>
-                                <button type="button " class="btn btn-secondary disabled ">Holo <span class="badge badge-light "><%= card.counts.hasHolo %></span></button>
-                                <button type="button " class="btn btn-secondary ">Up</button>
-                            </div>
-                            <% } %>
+        <% } %>
+        <% if(card.counts.hasReverse === true) { %>
+            <div class="btn-group btn-group-sm " role="group " aria-label="Basic example ">
+                <button type="button " class="btn btn-secondary ">Down</button>
+                <button type="button " class="btn btn-secondary disabled ">Reverse <span class="badge badge-light "><%= card.counts.reverseCount %></span></button>
+                <button type="button " class="btn btn-secondary ">Up</button>
+            </div>
+        <% } %>
+        <% if(card.counts.hasHolo === true) { %>
+            <div class="btn-group btn-group-sm " role="group " aria-label="Basic example ">
+                <button type="button " class="btn btn-secondary ">Down</button>
+                <button type="button " class="btn btn-secondary disabled ">Holo <span class="badge badge-light "><%= card.counts.holoCount %></span></button>
+                <button type="button " class="btn btn-secondary ">Up</button>
+            </div>
+        <% } %>
 
     </td>
 </tr>
