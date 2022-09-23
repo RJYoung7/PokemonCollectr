@@ -1,20 +1,20 @@
 const express = require('express');
-const app = express();
-const path = require('path');
-const mongoose = require('mongoose');
-const methodOverride = require('method-override');
-const axios = require('axios');
 const engine = require('ejs-mate');
-// const pokemon = import('./modules/pokemontcgio.mjs')
+const multer = require('multer');
+const axios = require('axios');
+const methodOverride = require('method-override');
 const pokemon = require('pokemontcgsdk');
+const mongoose = require('mongoose');
 
 const Card = require('./models/card');
 const Set = require('./models/set');
+
 const data = require('./public/assets/pokemonlist.json');
 const sets = require('./sets.json');
 const cards = require('./swsh11.json');
-const { json } = require('express');
 
+const app = express();
+const path = require('path');
 // pokemon.card.all({ q: 'set.id:swsh11'})
 // .then(card => {
 //     const imgs = [];
