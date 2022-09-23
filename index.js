@@ -13,6 +13,18 @@ const data = require('./public/assets/pokemonlist.json');
 const sets = require('./sets.json');
 const cards = require('./swsh11.json');
 
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, path.join(__dirname + '/uploads/'))
+    },
+    filename: function (req, file, cb) {
+        const uniqueSuffix = Date.now();
+        cb(null, file.originalname + '--' + uniqueSuffix);
+    }
+})
+  
+const upload = multer({ storage: storage })
+
 const app = express();
 const path = require('path');
 // pokemon.card.all({ q: 'set.id:swsh11'})
@@ -40,7 +52,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
-
+app.use(express.static('multer'));
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.set('partials', path.join(__dirname, '/partials'));
