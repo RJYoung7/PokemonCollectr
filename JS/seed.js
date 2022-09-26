@@ -5,14 +5,66 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const axios = require('axios');
 const engine = require('ejs-mate');
+const fs = require('fs')
+const pokemon = require('pokemontcgsdk');
 
-const Card = require('./models/card');
-const Set = require('./models/set');
-const data = require('./public/assets/pokemonlist.json');
-const sets = require('./sets.json');
-const cards = require('./swsh11.json');
-const { json } = require('express');
+const Card = require('../models/card');
+const Set = require('../models/set');
+const data = require('../public/assets/pokemonlist.json');
+const sets = require('../sets.json');
+const cards = require('../swsh11.json');
 
+const createFolders = (name) => {
+
+    console.log(__dirname);
+    // Set Folders
+    try {
+        if (!fs.existsSync(path.join(__dirname, `../images/${name}`))) {
+          fs.mkdirSync(path.join(__dirname, `../images/${name}`));
+        }
+    } catch (err) {
+        console.error(err);
+    }
+
+    // Set image folder
+    try {
+        if (!fs.existsSync(path.join(__dirname, `../images/${name}/setImgs`))) {
+          fs.mkdirSync(path.join(__dirname, `../images/${name}/setImgs`));
+        }
+    } catch (err) {
+        console.error(err);
+    }
+
+    // Card image folder
+    try {
+        if (!fs.existsSync(path.join(__dirname, `../images/${name}/cardImgs`))) {
+          fs.mkdirSync(path.join(__dirname, `../images/${name}/cardImgs`));
+        }
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+// Function to download images to local storage
+const getImage = async(imageUrl, path, imgDesc, imgType) => {            
+    await axios({
+        method: 'get',
+        url: `${imageUrl}`,
+        responseType: 'stream'
+        })
+        .then(function (response) {
+            response.data.pipe(fs.createWriteStream(`${path}/${imgDesc}.${imgType}`))
+        });
+}
+
+// Function to get all card data from a given set id
+const getCards = async(setId) => {
+    return await pokemon.card.all({q: `set.id:${setId}`}).then((result) => {
+        return result;
+    });
+}
+
+// Function to seed db with set data
 const makeSets = async() => {
     const setData = sets.data;
     for(let set of setData) {
@@ -31,8 +83,8 @@ const makeSets = async() => {
         newSet.save();
     }
 }
-makeSets();
 
+// Function to seed db with card data
 const makeCards = async() => {
     const cardData = cards;
     const theSet = await Set.find({id: 'swsh11'});
@@ -62,7 +114,6 @@ const makeCards = async() => {
         newCard.save();
     }
 }
-makeCards();
 
 const populateSetid = async () => {
     const theSet = await Set.find({id: 'swsh11'});
@@ -86,4 +137,22 @@ const populateSetid = async () => {
     
 }
 
-populateSetid();
+const getAllSets = async() => {
+    return await pokemon.set.all().then((sets) => {
+        return sets;
+    })
+}
+
+const createSetFolders = async() => {
+    const sets = await getAllSets();
+
+    for(let set of sets) {
+        createFolders(set.id);
+    } 
+}
+
+// Create folders for images
+createSetFolders();
+// makeSets();
+// makeCards();
+// populateSetid();
