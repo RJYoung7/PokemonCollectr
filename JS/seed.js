@@ -16,7 +16,6 @@ const cards = require('../swsh11.json');
 
 const createFolders = (name) => {
 
-    console.log(__dirname);
     // Set Folders
     try {
         if (!fs.existsSync(path.join(__dirname, `../images/${name}`))) {
@@ -151,8 +150,23 @@ const createSetFolders = async() => {
     } 
 }
 
+const downloadSetImages = async() => {
+    const sets = await getAllSets();
+
+    for(let set of sets) {
+        const logoUrl = set.images.logo;
+        const symbolUrl = set.images.symbol;
+        getImage(logoUrl, `images/${set.id}/setImgs/`, 'logo', 'png');
+        getImage(symbolUrl, `images/${set.id}/setImgs/`, 'symbol', 'png');
+    } 
+}
+
+// Download set logos and symbols
+downloadSetImages();
+
 // Create folders for images
-createSetFolders();
+// createSetFolders();
+
 // makeSets();
 // makeCards();
 // populateSetid();
