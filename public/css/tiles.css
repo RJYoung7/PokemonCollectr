@@ -39,7 +39,7 @@ svg {
     width: 20vh;
     height: 20vh;
     display: flex;
-    margin: 15px;
+    margin: 15px 15px 0 15px;
  }
 
  .imglogo{
@@ -51,5 +51,10 @@ svg {
  .imgCard {
     width: 50%;
     height: 50%;
+ }
+
+ p {
+    text-align: center;
+    margin: auto;
  }
 
