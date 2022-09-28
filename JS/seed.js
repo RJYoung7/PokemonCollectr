@@ -10,9 +10,7 @@ const pokemon = require('pokemontcgsdk');
 
 const Card = require('../models/card');
 const Set = require('../models/set');
-const data = require('../public/assets/pokemonlist.json');
-const sets = require('../sets.json');
-const cards = require('../swsh11.json');
+
 
 const createFolders = (name) => {
 
@@ -146,6 +144,12 @@ const getAllSets = async() => {
     })
 }
 
+const getSet = async(setId) => {
+    return await pokemon.set.where({id: setId}).then((set) => {
+        return set;
+    })
+}
+
 const createSetFolders = async() => {
     const sets = await getAllSets();
 
@@ -154,7 +158,8 @@ const createSetFolders = async() => {
     } 
 }
 
-const downloadSetImages = async() => {
+// Downloads all set images from pokemon api
+const downloadAllSetImages = async() => {
     const sets = await getAllSets();
 
     for(let set of sets) {
@@ -165,12 +170,97 @@ const downloadSetImages = async() => {
     } 
 }
 
+// Downloads all card images of set from pokemon api
+const downloadCardImagesOfSet = async(setId) => {
+    const cards = await pokemon.card.all({q: `set.id:${setId}`});
+    for(let card of cards) {
+        // Create Folder
+        try {
+            if (!fs.existsSync(path.join(__dirname, `../images/${setId}/cardImgs/${card.name}`))) {
+              fs.mkdirSync(path.join(__dirname, `../images/${setId}/cardImgs/${card.name}`));
+            }
+        } catch (err) {
+            console.error(err);
+        }
+        const smallUrl = card.images.small;
+        const largeUrl = card.images.large;
+        await getImage(smallUrl, `images/${setId}/cardImgs/${card.name}/`, 'small', 'png');
+        await getImage(largeUrl, `images/${setId}/cardImgs/${card.name}/`, 'large', 'png');
+        uploadSingleCard(card);
+    } 
+}
+
+// Uploads single card data to mongodb
+const uploadSingleCard = async(card) => {
+    const theSet = await Set.findOne({id: `${card.set.id}`});
+    const smallImg = `/${card.set.id}/cardImgs/${card.name}/small.png`;
+    const largeImg = `/${card.set.id}/cardImgs/${card.name}/large.png`;
+    const newCard = new Card({
+        id: card.id,
+        name: card.name,
+        number: card.number,
+        rarity: card.rarity,
+        types: card.types,
+        image: {
+            small: smallImg,
+            large: largeImg
+        },
+        owned: false,
+        set: theSet._id
+    });
+    // newCard.populate(theSet);
+    if(newCard.rarity === 'Common' || newCard.rarity === 'Uncommon' || newCard.rarity === 'Rare') {
+        newCard.counts.hasStandard = true;
+        newCard.counts.hasReverse = true;
+    } else {
+        newCard.counts.hasHolo = true;
+    }
+
+    await newCard.save();
+}
+
+// Uploads all card data from a given set to mongodb
+const uploadSetCards = async(setId) => {
+    const theSet = await Set.findOne({id: `${setId}`});
+    const cards = await pokemon.card.all({q: `set.id:${setId}`});
+    for(let card of cards) {
+        const smallImg = `/${card.set.id}/cardImgs/${card.name}/small.png`;
+        const largeImg = `/${card.set.id}/cardImgs/${card.name}/large.png`;
+        const newCard = new Card({
+            id: card.id,
+            name: card.name,
+            number: card.number,
+            rarity: card.rarity,
+            types: card.types,
+            images: {
+                small: smallImg,
+                large: largeImg
+            },
+            owned: false,
+            set: theSet._id
+        });
+        // newCard.populate(theSet);
+        if(newCard.rarity === 'Common' || newCard.rarity === 'Uncommon' || newCard.rarity === 'Rare') {
+            newCard.counts.hasStandard = true;
+            newCard.counts.hasReverse = true;
+        } else {
+            newCard.counts.hasHolo = true;
+        }
+
+        await newCard.save();
+    }
+    console.log('Done Uploading');
+
+}
+
+module.exports = { downloadCardImagesOfSet, uploadSetCards }
+
 // Download set logos and symbols
 // downloadSetImages();
 
 // Create folders for images
 // createSetFolders();
 
-makeSets();
+// makeSets();
 // makeCards();
 // populateSetid();
