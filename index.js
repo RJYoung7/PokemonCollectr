@@ -45,6 +45,8 @@ async function main() {
     await mongoose.connect('mongodb://localhost:27017/pokemonCollectr');
 }
 
+
+
 app.engine('ejs', engine);
 
 app.set('views', path.join(__dirname, 'views'));
@@ -54,31 +56,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static('multer'));
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'images')))
 
 app.set('partials', path.join(__dirname, '/partials'));
 app.set('cards', path.join(__dirname, '/cards'));
 
 app.get('/', async (req, res) => {
-    // const set = data.series[0].expansions[0];
-    // const cards = set.cards;
-    // const config = { Headers: { Authorization: 'a046ddc1-16d3-4bb1-a8b4-7a1be75dd132'}};
-    // const {data} = await axios.get('https://api.pokemontcg.io/v2/sets', config);
-    // const setArray = data.data;
-    // console.log(setArray);
-    // const { name } = set;
-    const setData = sets.data;
-    res.render('cards/index', { setData});
 
-    // res.render('cards/index', {set, cards});
-    // console.log(name);
-})
-
-app.get('/pokemongo', (req, res) => {
-    const set = data.series[0].expansions[0];
-    const cards = set.cards;
-    // const { name } = set;
-    res.render('home', {set, cards });
-    // console.log(name);
+    const sets = await Set.find({}).sort({releaseDate: 'desc'});
+    res.render('cards/index', { sets });
 })
 
 app.get('/set/:id', async (req, res) => {
