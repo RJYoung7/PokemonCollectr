@@ -5,6 +5,7 @@ const axios = require('axios');
 const methodOverride = require('method-override');
 const pokemon = require('pokemontcgsdk');
 const mongoose = require('mongoose');
+const globals = require('./globals');
 
 const Card = require('./models/card');
 const Set = require('./models/set');
@@ -25,16 +26,10 @@ const storage = multer.diskStorage({
   
 const upload = multer({ storage: storage })
 
+pokemon.configure({apiKey: globals.API_KEY});
+
 const app = express();
 const path = require('path');
-// pokemon.card.all({ q: 'set.id:swsh11'})
-// .then(card => {
-//     const imgs = [];
-//     for(let c of card) {
-//         imgs.push(c.images.small);
-//     }
-//     console.log(imgs)
-// })
 
 main()
     .then(() => {
