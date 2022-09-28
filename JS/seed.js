@@ -65,21 +65,25 @@ const getCards = async(setId) => {
 
 // Function to seed db with set data
 const makeSets = async() => {
+    console.log('making sets')
+
     const setData = sets.data;
     for(let set of setData) {
+        const sym = `/${set.id}/setImgs/symbol.png`;
+        const logo = `/${set.id}/setImgs/logo.png`;
         const newSet = new Set({
             id: set.id,
             name: set.name,
             series: set.series,
             printedTotal: set.printedTotal,
             total: set.total,
-            releaseDate: set.releaseDate
-            // images: {
-            //     symbol: set.images.symbol,
-            //     logo: set.images.logo
-            // }
+            releaseDate: set.releaseDate,
+            images: {
+                symbol: sym,
+                logo: logo
+            }
         })
-        newSet.save();
+        await newSet.save();
     }
 }
 
@@ -162,11 +166,11 @@ const downloadSetImages = async() => {
 }
 
 // Download set logos and symbols
-downloadSetImages();
+// downloadSetImages();
 
 // Create folders for images
 // createSetFolders();
 
-// makeSets();
+makeSets();
 // makeCards();
 // populateSetid();
