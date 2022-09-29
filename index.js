@@ -53,7 +53,7 @@ app.use(express.static(path.join(__dirname, 'images')))
 app.set('partials', path.join(__dirname, '/partials'));
 app.set('cards', path.join(__dirname, '/cards'));
 
-uploadSetCards('swsh11')
+// uploadSetCards('swsh11')
 
 app.get('/', async (req, res) => {
 
