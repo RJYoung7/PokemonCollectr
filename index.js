@@ -70,6 +70,30 @@ app.get('/set/:id', async (req, res) => {
     res.render('cards/set', { cards, theSet });
 })
 
+app.post('/set/:id', async (req, res) => {
+    const {pokemonId} = req.body;
+    const {countType} = req.body;
+    const {count} = req.body;
+    const card = await Card.findOne({id: `${pokemonId}`});
+    if(countType === 'standardCount') {
+        card.counts.standardCount = count;
+    } else if (countType === 'reverseCount') {
+        card.counts.reverseCount = count;
+    } else {
+        card.counts.holoCount = count;
+    }
+    let totalCounts = card.counts.standardCount + card.counts.reverseCount + card.counts.hasHolo;
+    if(totalCounts > 0) {
+        card.owned = true;
+    }
+
+    await card.save();
+
+    console.log('request received');
+    
+    /** Need to send a response without updating page  **/
+})
+
 app.listen(3000, () => {
     console.log('LISTENING ON PORT 3000');
 })
