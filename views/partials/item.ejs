@@ -1,4 +1,4 @@
-<tr class="text-center">
+<tr class="text-center" id="<%= card.id %>">
     <td class="align-middle">
         <img src='<%= card.images.small %>' class="img-fluid imgCard" alt=" ">
 
@@ -17,24 +17,24 @@
     <td class="align-middle">
 
         <% if(card.counts.hasStandard === true) { %>
-            <div class="btn-group btn-group-sm " role="group " aria-label="Basic example ">
-                <button type="button " class="btn btn-secondary downBtns">Down</button>
+            <div class="btn-group btn-group-sm " role="group " aria-label="Basic example" id="standardCount">
+                <button type="button " class="btn btn-secondary downBtns">-</button>
                 <button type="button " class="btn btn-secondary disabled ">Standard <span class="badge badge-light "><%= card.counts.standardCount %> </span></button>
-                <button type="button" class="btn btn-secondary upBtns">Up</button>
+                <button type="button" class="btn btn-secondary upBtns">+</button>
             </div>
         <% } %>
         <% if(card.counts.hasReverse === true) { %>
-            <div class="btn-group btn-group-sm " role="group " aria-label="Basic example ">
-                <button type="button " class="btn btn-secondary downBtns">Down</button>
+            <div class="btn-group btn-group-sm " role="group " aria-label="Basic example " id="reverseCount">
+                <button type="button " class="btn btn-secondary downBtns">-</button>
                 <button type="button " class="btn btn-secondary disabled ">Reverse <span class="badge badge-light "><%= card.counts.reverseCount %></span></button>
-                <button type="button " class="btn btn-secondary upBtns">Up</button>
+                <button type="button " class="btn btn-secondary upBtns">+</button>
             </div>
         <% } %>
         <% if(card.counts.hasHolo === true) { %>
-            <div class="btn-group btn-group-sm " role="group " aria-label="Basic example ">
-                <button type="button " class="btn btn-secondary downBtns">Down</button>
+            <div class="btn-group btn-group-sm " role="group " aria-label="Basic example " id="holoCount">
+                <button type="button " class="btn btn-secondary downBtns">-</button>
                 <button type="button " class="btn btn-secondary disabled ">Holo <span class="badge badge-light "><%= card.counts.holoCount %></span></button>
-                <button type="button " class="btn btn-secondary upBtns">Up</button>
+                <button type="button " class="btn btn-secondary upBtns">+</button>
             </div>
         <% } %>
 
