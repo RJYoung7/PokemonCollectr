@@ -63,12 +63,14 @@ app.get('/', async (req, res) => {
 })
 
 app.get('/set/:id', async (req, res) => {
+    const {view} = req.query;
     // Get the card data
     const {id} = req.params;
+    // const view = req.params
     const theSet = await Set.findOne({id: id})
     const cards = await Card.find({set: theSet});
 
-    res.render('cards/set', { cards, theSet });
+    res.render('cards/set', { cards, theSet, view });
 })
 
 app.post('/set/:id', async (req, res) => {
