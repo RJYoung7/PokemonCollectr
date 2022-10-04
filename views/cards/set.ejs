@@ -1,6 +1,10 @@
 <% layout('layouts/boilerplate') -%> 
 
 <body>
-    <%- include('../partials/table', {cards: cards, set: theSet}) %>
+    <% if(view === 'tiles') { %>
+        <%- include('../partials/tile', {cards: cards, set: theSet}) %>
+    <% } else { %>
+        <%- include('../partials/table', {cards: cards, set: theSet}) %>
+    <% } %>   
     
 </body>
