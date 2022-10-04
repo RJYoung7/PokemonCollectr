@@ -45,6 +45,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(express.static('multer'));
 app.use(express.static(path.join(__dirname, 'public')))
@@ -71,10 +72,13 @@ app.get('/set/:id', async (req, res) => {
 })
 
 app.post('/set/:id', async (req, res) => {
-    const {pokemonId} = req.body;
-    const {countType} = req.body;
-    const {count} = req.body;
+    // Destructure data from req body
+    const {pokemonId, countType, count} = req.body;
+
+    // Search the database with the id of the card
     const card = await Card.findOne({id: `${pokemonId}`});
+
+    // Update count based on count type
     if(countType === 'standardCount') {
         card.counts.standardCount = count;
     } else if (countType === 'reverseCount') {
@@ -82,15 +86,19 @@ app.post('/set/:id', async (req, res) => {
     } else {
         card.counts.holoCount = count;
     }
-    let totalCounts = card.counts.standardCount + card.counts.reverseCount + card.counts.hasHolo;
-    if(totalCounts > 0) {
-        card.owned = true;
-    }
 
+    // Sum counts of all card versions
+    let totalCounts = card.counts.standardCount + card.counts.reverseCount + card.counts.hasHolo;
+
+    // Set owned to true if the count is above 0
+    card.owned = totalCounts > 0 ? true : false;
+
+    // Save the card data to the database
     await card.save();
 
     console.log('request received');
     
+    res.status(200).end();
     /** Need to send a response without updating page  **/
 })
 
