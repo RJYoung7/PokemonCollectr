@@ -1,0 +1,32 @@
+<% layout('layouts/boilerplate') -%> 
+<%- include('../partials/navSetOptions') %>
+
+<% for(let card of cards) { %>
+    <div class="card text-center tile" style="width: 18rem; display: inline-block;" id="<%= card.id %>">
+        <img class="card-img-top" src='<%= card.images.small %>' alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= card.name %></h5>
+          <p class="card-text"><% if(card.counts.hasStandard === true) { %>
+            <div class="btn-group btn-group-sm " role="group " aria-label="Basic example" id="standardCount">
+                <button type="button " class="btn btn-secondary downBtns">-</button>
+                <button type="button " class="btn btn-secondary disabled ">Std <span class="badge badge-light "><%= card.counts.standardCount %></span></button>
+                <button type="button" class="btn btn-secondary upBtns">+</button>
+            </div>
+        <% } %>
+        <% if(card.counts.hasReverse === true) { %>
+            <div class="btn-group btn-group-sm " role="group " aria-label="Basic example " id="reverseCount">
+                <button type="button " class="btn btn-secondary downBtns">-</button>
+                <button type="button " class="btn btn-secondary disabled ">Rev <span class="badge badge-light "><%= card.counts.reverseCount %></span></button>
+                <button type="button " class="btn btn-secondary upBtns">+</button>
+            </div>
+        <% } %>
+        <% if(card.counts.hasHolo === true) { %>
+            <div class="btn-group btn-group-sm " role="group " aria-label="Basic example " id="holoCount">
+                <button type="button " class="btn btn-secondary downBtns">-</button>
+                <button type="button " class="btn btn-secondary disabled ">Holo <span class="badge badge-light "><%= card.counts.holoCount %></span></button>
+                <button type="button " class="btn btn-secondary upBtns">+</button>
+            </div>
+        <% } %></p>
+        </div>
+      </div>
+<% } %>
