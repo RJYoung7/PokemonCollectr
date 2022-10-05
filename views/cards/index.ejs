@@ -4,13 +4,13 @@
         <%- include('../partials/navIndex') %>
 
         <div class="container">
-            <div class="row">
+            <div class="row centerContent">
                 <% for(let set of sets) { %> 
-                    <a href="/set/<%= set.id  %>">
+                    <a class="setImgTile" href="/set/<%= set.id  %>">
                         <div class="card parent">
                             <img class="card-img-top imglogo" src="<%= set.images.logo %>" alt="Card image cap">
                         </div>
-                        <p><%= set.name %></p>
+                        <p class="setNameTile"><%= set.name %></p>
                     </a>
                 
                 <% } %> 
