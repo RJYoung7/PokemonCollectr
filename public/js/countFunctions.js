@@ -1,3 +1,18 @@
+// import test from '../json/test.json' assert {type: 'json'};
+// async function getCardData(url) {
+//     const response = await fetch(url);
+//     console.log('fetched json');
+//     return response.json();
+// }
+
+// const data = await getCardData('http://localhost:3000/json/test.json');
+let jsondata;
+fetch('http://localhost:3000/json/cards.json')
+    .then(function (u) {return u.json();}
+    ).then(function (json) {
+        jsondata = json;
+    });
+
 
 let downBtns = document.querySelectorAll('.downBtns');
 
@@ -19,7 +34,7 @@ downBtns.forEach(btn => {
                 countType: e.target.parentNode.id,
                 count: count
             }
-    
+            
             // Make a post request to update the database with the new count data
             axios.post('swsh11', countUpdate).then(function(response) {
                 console.log("Response:",  response)
