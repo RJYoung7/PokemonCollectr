@@ -1,103 +1,101 @@
 :root {
-    --dark-color: #635bff;
-    --light-color: #80e9ff;
+  --dark-color: #635bff;
+  --light-color: #80e9ff;
 }
 
 svg {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #rectangles {
-    fill: var(--primary);
+  fill: var(--bs-primary);
 }
 
 #lightGroup {
-    fill: var(--light-color);
+  fill: var(--light-color);
 }
 
 .noPadSvg {
-    padding: 0;
+  padding: 0;
 }
 
 #lines {
-    fill: var(--primary);
+  fill: var(--bs-primary);
 }
 
 .custom-toggler.navbar-toggler {
-    border-color: var(--primary);
+  border-color: var(--primary);
 }
-
 
 /* Setting the stroke to green using rgb values (0, 128, 0) */
 
 .custom-toggler .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(13, 110, 253, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(13, 110, 253, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
- .parent {
-    border: 0px;
-    width: 20vh;
-    height: 20vh;
-    margin: auto;
- }
-
- .imglogo{
-    max-width: 192px;
-    max-height: 192px;
-    margin: auto;
- }
-
- .imgCard {
-    width: 50%;
-    height: 50%;
- }
-
- p {
-    text-align: center;
-    margin: auto;
- }
-
- .tile {
-    border: 1px solid rgb(192, 189, 189);
-    border-radius: 5px;
-    margin: 5px;
-    padding: 10px;
-
+.parent {
+  border: 0px;
+  width: 20vh;
+  height: 20vh;
+  margin: auto;
 }
 
- .tile-header {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
- }
+.imglogo {
+  max-width: 192px;
+  max-height: 192px;
+  margin: auto;
+}
 
- .setImgTile {
-    border: 1px solid gray;
-    border-radius: 5px;
-    margin: 10px;
-    width: 240px;
- }
+.imgCard {
+  width: 50%;
+  height: 50%;
+}
 
- .setImgTile:hover {
-    border: 1px solid gray;
-    border-radius: 5px;
-    margin: 10px;
-    box-shadow: 1px 1px 5px 0px rgba(0,0,0, .1),
-                3px 3px 5px 0px rgba(0,0,0, .5);
- }
+p {
+  text-align: center;
+  margin: auto;
+}
 
- .setNameTile {
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
- }
+.tile {
+  border: 1px solid rgb(192, 189, 189);
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px;
+}
 
- a:link {
-    text-decoration: none;
- }
+.tile-header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
 
- .centerContent {
-    justify-content: center;
- }
+.setImgTile {
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin: 10px;
+  width: 240px;
+}
 
- li {
-    text-align: center;
- }
+.setImgTile:hover {
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.1),
+    3px 3px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.setNameTile {
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.centerContent {
+  justify-content: center;
+}
+
+li {
+  text-align: center;
+}

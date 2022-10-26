@@ -1,19 +1,16 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light centerContent">
-    <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon "></span>
-    </button>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse centerContent" id="navbarSupportedContent">
         <ul class="navbar-nav ">
-            <!-- <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li> -->
             <li class="nav-item">
                 <a class="nav-link text-primary"  href="/">
                     Home
                 </a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle  text-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort</a>
+                <a class="nav-link dropdown-toggle  text-primary" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">#</a>
                     <a class="dropdown-item" href="#">Rarity</a>
@@ -24,7 +21,7 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle  text-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</a>
+                <a class="nav-link dropdown-toggle text-primary" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Unowned</a>
                     <a class="dropdown-item" href="#">Owned</a>
@@ -53,39 +50,38 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link noPadSvg" href='/set/<%= set.id %>?view=tiles'>
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xlmns:xlink="#">
-                                <g id="tiles">
-                                    <rect width="40" height="40"/>
-                                    <g id="rectangles">
-                                        <rect id="rect1" x="4" y="5" width="13.3" height="13.3" rx="2"/>
-                                        <rect id="rect2" x="23.3" y="5" width="13.3" height="13.3" rx="2"/>
-                                        <rect id="rect3" x="4" y="23.3" width="13.3" height="13.3" rx="2"/>
-                                        <rect id="rect4" x="23.3" y="23.3" width="13.3" height="13.3" rx="2"/>
-                                    </g>
-                                </g>
-                            </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 40 40" >
+                        <g id="tiles">
+                            <rect width="40" height="40"/>
+                            <g id="rectangles">
+                                <rect id="rect1" x="4" y="5" width="13.3" height="13.3" rx="2"/>
+                                <rect id="rect2" x="23.3" y="5" width="13.3" height="13.3" rx="2"/>
+                                <rect id="rect3" x="4" y="23.3" width="13.3" height="13.3" rx="2"/>
+                                <rect id="rect4" x="23.3" y="23.3" width="13.3" height="13.3" rx="2"/>
+                            </g>
+                        </g>
+                    </svg>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link noPadSvg" href='/set/<%= set.id %>?view=list'>
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g id="list">
-                                    <rect width="40" height="40"/>
-                                    <g id="lines">
-                                        <rect id="line4" x="4" y="31" width="32" height="5" rx="1"/>
-                                        <rect id="line3" x="4" y="22" width="32" height="5" rx="1"/>
-                                        <rect id="line2" x="4" y="13" width="32" height="5" rx="1"/>
-                                        <rect id="line1" x="4" y="4" width="32" height="5" rx="1"/>
-                                    </g>
-                                </g>
-                            </svg>
+                        <g id="list">
+                            <rect width="40" height="40"/>
+                            <g id="lines">
+                                <rect id="line4" x="4" y="31" width="32" height="5" rx="1"/>
+                                <rect id="line3" x="4" y="22" width="32" height="5" rx="1"/>
+                                <rect id="line2" x="4" y="13" width="32" height="5" rx="1"/>
+                                <rect id="line1" x="4" y="4" width="32" height="5" rx="1"/>
+                            </g>
+                        </g>
+                    </svg>
                 </a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0 centerContent">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        <form class="d-flex my-2 my-lg-0 centerContent">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary" type="submit">Search</button>
         </form>
-    </div>
     </div>
 </nav>
